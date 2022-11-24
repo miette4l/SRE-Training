@@ -14,5 +14,20 @@ def calculate_positions(initial_co_ords, course):
     return h*d
 
 
+def aim_calculations(initial_co_ords, course):
+    aim = 0
+    (h, d) = initial_co_ords
+    for line in my_input:
+        if line[0] == "forward":
+            x = int(line[1])
+            h += x
+            d += aim * x
+        elif line[0] == "down":
+            aim += int(line[1])
+        elif line[0] == "up":
+            aim -= int(line[1])
+    return h*d
+
+
 if __name__ == "__main__":
-    print(calculate_positions(co_ords, my_input))
+    print(aim_calculations(co_ords, my_input))
